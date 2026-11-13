@@ -1,13 +1,14 @@
 
+---
 import PageLayout from "@layouts/PageLayout.astro";
 import { FullPageMap, loadMapConfig } from "@maplibre-yaml/astro";
 
-// Map configuration adapted from the course template.
-export const map = await loadMapConfig("./src/maps/after-the-factory.yaml");
+const map = await loadMapConfig("./src/maps/after-the-factory.yaml");
+---
 
 <PageLayout
   title="After the Factory | Brooklyn"
-  description="An interactive atlas of industrial persistence and transformation in Brooklyn."
+  description="Industrial Persistence and Transformation in Brooklyn"
   bleed
 >
   <FullPageMap
@@ -23,9 +24,9 @@ export const map = await loadMapConfig("./src/maps/after-the-factory.yaml");
         Industrial Persistence and Transformation in Brooklyn, NYC
       </p>
       <p class="mt-2">
-        Explore ten selected industrial adaptive reuse sites
-        alongside industrial land use and their surrounding
-        400-meter analysis areas.
+        Explore ten selected adaptive reuse sites alongside
+        industrial land use and their surrounding 400-meter
+        analysis areas.
       </p>
       <p class="mt-2 text-xs">
         Use the layer panel to compare spatial relationships.
