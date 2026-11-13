@@ -1,0 +1,61 @@
+
+# After the Factory: Brooklyn
+# GIS for Design Practices — Assignment 04
+# Adapted from design-practices/astro-maplibre-template
+
+type: map
+id: after-the-factory
+
+config:
+  mapStyle: "https://tiles.openfreemap.org/styles/positron"
+  center: [-73.96, 40.69]
+  zoom: 11
+
+layers:
+  # Selected industrial adaptive reuse sites
+  - id: adaptive-reuse-sites
+    type: circle
+    label: Adaptive reuse sites
+    source:
+      type: geojson
+      url: "/data/adaptive_reuse_sites.geojson"
+    paint:
+      circle-radius: 7
+      circle-color: "#b44735"
+      circle-stroke-color: "#ffffff"
+      circle-stroke-width: 2
+    legend:
+      label: Adaptive reuse sites
+      color: "#b44735"
+      shape: circle
+
+  # Industrial and manufacturing tax lots
+  - id: industrial-lots
+    type: fill
+    label: Industrial land use
+    source:
+      type: geojson
+      url: "/data/brooklyn_industrial_lots.geojson"
+    paint:
+      fill-color: "#6b8377"
+      fill-opacity: 0.55
+    legend:
+      label: Industrial land use
+      color: "#6b8377"
+      shape: square
+
+  # 400-meter analysis buffers
+  - id: adaptive-reuse-buffers
+    type: fill
+    label: 400m analysis radius
+    visible: false
+    source:
+      type: geojson
+      url: "/data/adaptive_reuse_buffers_400m.geojson"
+    paint:
+      fill-color: "#d9a441"
+      fill-opacity: 0.18
+    legend:
+      label: 400m analysis radius
+      color: "#d9a441"
+      shape: square
