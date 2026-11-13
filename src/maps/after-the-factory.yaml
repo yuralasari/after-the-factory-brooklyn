@@ -8,8 +8,8 @@ id: after-the-factory
 
 config:
   mapStyle: "https://tiles.openfreemap.org/styles/positron"
-  center: [-73.96, 40.69]
-  zoom: 11
+  center: [-73.955, 40.675]
+  zoom: 12
 
 layers:
   # Selected industrial adaptive reuse sites
