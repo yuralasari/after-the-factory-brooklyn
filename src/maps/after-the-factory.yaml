@@ -28,7 +28,7 @@ layers:
       label: Adaptive reuse sites
       color: "#b44735"
       shape: circle
-     interactive:
+    interactive:
       hover:
         cursor: pointer
       click:
