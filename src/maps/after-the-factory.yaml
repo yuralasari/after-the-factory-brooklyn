@@ -31,18 +31,19 @@ layers:
 
   # Industrial and manufacturing tax lots
   - id: industrial-lots
-    type: fill
-    label: Industrial land use
+    type: circle
+    label: Industrial tax lot locations
     source:
       type: geojson
       url: "/after-the-factory-brooklyn/data/brooklyn_industrial_lots.geojson"
     paint:
-      fill-color: "#6b8377"
-      fill-opacity: 0.55
+      circle-radius: 2
+      circle-color: "#6b8377"
+      circle-opacity: 0.55
     legend:
-      label: Industrial land use
+      label: Industrial tax lot locations
       color: "#6b8377"
-      shape: square
+      shape: circle
 
   # 400-meter analysis buffers
   - id: adaptive-reuse-buffers
