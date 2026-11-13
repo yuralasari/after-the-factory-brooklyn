@@ -18,7 +18,7 @@ layers:
     label: Adaptive reuse sites
     source:
       type: geojson
-      url: "/data/adaptive_reuse_sites.geojson"
+      url: "/after-the-factory-brooklyn/data/adaptive_reuse_sites.geojson"
     paint:
       circle-radius: 7
       circle-color: "#b44735"
@@ -35,7 +35,7 @@ layers:
     label: Industrial land use
     source:
       type: geojson
-      url: "/data/brooklyn_industrial_lots.geojson"
+      url: "/after-the-factory-brooklyn/data/brooklyn_industrial_lots.geojson"
     paint:
       fill-color: "#6b8377"
       fill-opacity: 0.55
@@ -51,7 +51,7 @@ layers:
     visible: false
     source:
       type: geojson
-      url: "/data/adaptive_reuse_buffers_400m.geojson"
+      url: "/after-the-factory-brooklyn/data/adaptive_reuse_buffers_400m.geojson"
     paint:
       fill-color: "#d9a441"
       fill-opacity: 0.18
