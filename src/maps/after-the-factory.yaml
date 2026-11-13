@@ -48,9 +48,6 @@ layers:
               - str: "Address: "
               - property: Address
                 else: "Not recorded"
-          - p:
-              - src: "/after-the-factory-brooklyn/images/wythe-hotel.jpg"
-                alt: "Wythe Hotel exterior"
 
   # Industrial and manufacturing tax lots
   - id: industrial-lots
