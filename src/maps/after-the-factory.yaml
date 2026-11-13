@@ -28,6 +28,25 @@ layers:
       label: Adaptive reuse sites
       color: "#b44735"
       shape: circle
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - property: Name
+          - p:
+              - str: "Former use: "
+              - property: Former Use
+                else: "Not recorded"
+          - p:
+              - str: "Current use: "
+              - property: Current Use
+                else: "Not recorded"
+          - p:
+              - str: "Address: "
+              - property: Address
+                else: "Not recorded"
 
   # Industrial and manufacturing tax lots
   - id: industrial-lots
