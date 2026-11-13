@@ -1,0 +1,13 @@
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@consts";
+import { Scrollytelling, loadScrollytellingConfig } from "@maplibre-yaml/astro";
+
+{/*
+  The story is src/stories/nyc.yaml: the map, its layers and every chapter.
+  It is checked when the site builds.
+*/}
+export const story = await loadScrollytellingConfig("./src/stories/nyc.yaml");
+
+<PageLayout title="Scrollytelling" description={SITE.DESCRIPTION} bleed>
+  <Scrollytelling config={story} />
+</PageLayout>

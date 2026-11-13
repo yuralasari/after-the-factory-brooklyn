@@ -1,0 +1,20 @@
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@consts";
+import { FullPageMap, loadMapConfig } from "@maplibre-yaml/astro";
+
+{/* The map is src/maps/full-page.yaml. It is checked when the site builds. */}
+export const map = await loadMapConfig("./src/maps/full-page.yaml");
+
+<PageLayout title="Full page map" description={SITE.DESCRIPTION} bleed>
+  {/* FullPageMap covers the whole window; `style` starts it below the site header. */}
+  <FullPageMap
+    config={map}
+    style="top: var(--header-h); height: calc(100vh - var(--header-h));"
+  >
+    <div slot="top-left" class="hidden sm:block rounded bg-white/90 px-3 py-2 text-sm text-stone-700 shadow max-w-64">
+      <strong>Central Park</strong><br />
+      Squirrel sightings and Manhattan's bike lanes. Use the layer panel to
+      switch layers on and off.
+    </div>
+  </FullPageMap>
+</PageLayout>

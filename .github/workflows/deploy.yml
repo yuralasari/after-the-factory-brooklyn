@@ -1,0 +1,46 @@
+# Builds the site and publishes it on GitHub Pages every time you push to main.
+# One-time setup on GitHub: Settings → Pages → Build and deployment →
+# Source: "GitHub Actions". Also set `site` and `base` in astro.config.mjs.
+#
+# The build runs `npm run build`, which checks the code and every map and story
+# YAML file first: if one has a mistake, this job fails (the log names the file,
+# line and column) and the published site stays as it was.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Lets you run it by hand from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time: a push that lands while another is deploying waits
+# for it instead of failing ("in progress deployment"), and none is cancelled.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+      - name: Install, build, and upload the site
+        uses: withastro/action@v6
+        # Uses Node 24 (Astro 7 needs 22.23.4 or later) and npm, from package-lock.json.
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
